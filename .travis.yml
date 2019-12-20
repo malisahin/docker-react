@@ -10,3 +10,11 @@ script:
   - docker run -e CI=true malisahin/docker-react npm run test -- --coverage
 
 language: generic
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-055474306222"
+  bucket_path: "docker"
